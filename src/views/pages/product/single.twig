@@ -137,21 +137,32 @@
 						{% endfor %}
 
 					</div>
+					<input type="hidden" name="id" value="{{ product.id }}">
+					<div class=" row mr-2" style="">
+						<p class="">الكمية</p>
+						<salla-quantity-input max="10" value="1" name="quantity"></salla-quantity-input>
+					</div>
 					<form class="form product-form" enctype="multipart/form-data" method="post" onchange="salla.product.getPrice(new FormData(event.currentTarget))" onsubmit="return salla.form.onSubmit('cart.addItem', event)">
-						<input type="hidden" name="id" value="{{ product.id }}">
-						<div class=" row mr-2" style="">
-							<p class="">الكمية</p>
-							<salla-quantity-input max="10" value="1" name="quantity"></salla-quantity-input>
-						</div>
+
 						<div class="buttons mt-2 mb-3">
+							<input type="hidden" name="id" value="{{ product.id }}">
 							<salla-add-product-button support-sticky-bar amount="{{ product.base_currency_price }}" class="sticky-product-bar__btn" product-status="{{ product.status }}" product-type="{{ product.type }}" product-id="{{ product.id }}" type="submit" onclick="button.stop()" width="" {% if product.notify_availability %} {{ product.notify_availability.subscribed ? 'is-subscribed' : '' }} channels="{{ product.notify_availability.channels|join(',') }}" subscribed-options="{{ product.notify_availability.subscribed_options|json_encode }}" {{ product.notify_availability.options ? 'notify-options-availability' : '' }} {% endif %}>
 								{{ product.add_to_cart_label }}
 							</salla-add-product-button>
-							<button class="btn perfumaddToFav ">
+
+							<button class="btn perfumaddToFav">
 								<i class="fa-solid fa-heart ml-2"></i>اضف للمفضلة
 							</button>
 						</div>
 					</form>
+					{# <div class="buttons mt-2 mb-3">
+												<salla-add-product-button support-sticky-bar amount="{{ product.base_currency_price }}" class="sticky-product-bar__btn" product-status="{{ product.status }}" product-type="{{ product.type }}" product-id="{{ product.id }}" type="submit" onclick="button.stop()" width="" {% if product.notify_availability %} {{ product.notify_availability.subscribed ? 'is-subscribed' : '' }} channels="{{ product.notify_availability.channels|join(',') }}" subscribed-options="{{ product.notify_availability.subscribed_options|json_encode }}" {{ product.notify_availability.options ? 'notify-options-availability' : '' }} {% endif %}>
+													{{ product.add_to_cart_label }}
+												</salla-add-product-button>
+												<button class="btn perfumaddToFav ">
+													<i class="fa-solid fa-heart ml-2"></i>اضف للمفضلة
+												</button>
+											</div> #}
 				</div>
 			</div>
 
@@ -163,19 +174,19 @@
 					<h4 class="ml-3">الكمية</h4>
 					<salla-quantity-input max="10" value="1" name="quantity"></salla-quantity-input>
 				</div>
+				<form class="form product-form" enctype="multipart/form-data" method="post" onchange="salla.product.getPrice(new FormData(event.currentTarget))" onsubmit="return salla.form.onSubmit('cart.addItem', event)">
 
-				<div>
-					<form class="form product-form" enctype="multipart/form-data" method="post" onchange="salla.product.getPrice(new FormData(event.currentTarget))" onsubmit="return salla.form.onSubmit('cart.addItem', event)">
+					<div>
 						<input type="hidden" name="id" value="{{ product.id }}">
 						<salla-add-product-button support-sticky-bar amount="{{ product.base_currency_price }}" class="sticky-product-bar__btn" product-status="{{ product.status }}" product-type="{{ product.type }}" product-id="{{ product.id }}" type="submit" onclick="button.stop()" width="" {% if product.notify_availability %} {{ product.notify_availability.subscribed ? 'is-subscribed' : '' }} channels="{{ product.notify_availability.channels|join(',') }}" subscribed-options="{{ product.notify_availability.subscribed_options|json_encode }}" {{ product.notify_availability.options ? 'notify-options-availability' : '' }} {% endif %}>
 							{{ product.add_to_cart_label }}
 						</salla-add-product-button>
-					</form>
 
-					<button class="btn perfumaddToFav">
-						<i class="fa-solid fa-heart ml-2"></i>اضف للمفضلة
-					</button>
-				</div>
+						<button class="btn perfumaddToFav">
+							<i class="fa-solid fa-heart ml-2"></i>اضف للمفضلة
+						</button>
+					</div>
+				</form>
 
 			</div>
 
